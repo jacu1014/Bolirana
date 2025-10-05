@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puntuación del Juego</title>
+    <link rel="stylesheet" href="css/style.css"> 
+    
+   </head>
+<body>
+    <header>
+        <h1>Puntuación de Bolirana</h1>
+    </header>
+
+    <main class="pagina-configuracion">
+        <section class="configuracion-formulario" style="max-width: 900px;">
+            
+            <h2 id="tituloRonda">Ronda 1</h2>
+            
+            <div class="contenedor-accion">
+                <div class="tarjeta-jugador-lanzando">
+                    <h3>LANZANDO AHORA</h3>
+                    <p id="jugadorLanzando">Nombre Jugador 1</p>
+                </div>
+
+                <form id="formPuntaje" class="form-puntaje">
+                    <label for="puntajeLanzamiento">Puntaje:</label>
+                    <input type="number" 
+                            id="puntajeLanzamiento" 
+                            placeholder="Puntaje (+/-)" 
+                            required 
+                            min="-10">
+                    <button type="submit" id="btnSiguienteTurno" class="boton-principal">
+                        Guardar y Siguiente
+                    </button>
+                </form>
+            </div>
+            
+            <div class="tarjeta-jugador-preparado">
+                <h3>SE PREPARA</h3>
+                <p id="jugadorPreparado">Nombre Jugador 2</p>
+            </div>
+
+            <h2 style="margin-top: 3rem;">Tabla de Posiciones</h2>
+            <table class="tabla-puntuaciones">
+                <thead>
+                    <tr>
+                        <th>Puesto</th>
+                        <th>Jugador</th>
+                        <th>Puntaje</th>
+                        <th>Último Lanzamiento</th>
+                        <th>Falta para Ganar</th>
+                    </tr>
+                </thead>
+                <tbody id="cuerpoTablaPosiciones">
+                    </tbody>
+            </table>
+            
+            <div id="resultadoFinalJuego" class="hidden" style="margin-top: 3rem; padding: 20px; background-color: #e6ffe6; border-radius: 10px;">
+                <h2 style="color: #00b09b;">¡JUEGO TERMINADO!</h2>
+                <h3>Resultados Finales y Premios:</h3>
+                <div id="listaGanadoresFinal">
+                    </div>
+                
+                <button id="btnNuevoJuego" class="boton-principal" style="margin-top: 20px;">
+                    Empezar Nuevo Juego
+                </button>
+            </div>
+            
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 Juego de Bolirana</p>
+    </footer>
+
+    <script src="js/juego.js"></script> 
+</body>
+</html>

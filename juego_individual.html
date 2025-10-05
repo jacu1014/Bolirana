@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego Individual - Configuración</title>
+    <link rel="stylesheet" href="css/style.css"> 
+</head>
+<body>
+    <header>
+        <h1>Configuración: Juego Individual</h1>
+    </header>
+
+    <main class="pagina-configuracion">
+        <section class="configuracion-formulario">
+            <img src="img/individual.jpg" alt="Modo individual seleccionado" class="imagen-modo-seleccionado">
+
+            <h2>Ajustes de Partida</h2>
+            
+            <form id="formConfiguracionIndividual">
+                
+                <div class="input-group">
+                    <label for="numJugadores">Cantidad de Jugadores:</label>
+                    <input type="number" 
+                           id="numJugadores" 
+                           name="numJugadores" 
+                           placeholder="Mín. 2" 
+                           min="2" 
+                           max="50"  
+                           required> 
+                </div>
+
+                <div class="input-group">
+                    <label for="puntajeMaximo">Puntaje Objetivo para Ganar:</label>
+                    <input type="number" 
+                           id="puntajeMaximo" 
+                           name="puntajeMaximo" 
+                           placeholder="Ej. 5000" 
+                           min="1000" 
+                           required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="numPuestos">Puestos Ganadores:</label>
+                    <input type="number" 
+                           id="numPuestos" 
+                           name="numPuestos" 
+                           placeholder="Mín. 1" 
+                           min="1" 
+                           max="50"  
+                           required>
+                </div>
+
+                <div id="contenedorPremios" class="contenedor-premios">
+                </div>
+
+                <button type="submit" id="btnIniciarPartida" class="boton-principal">
+                    Continuar
+                </button>
+                
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Juego de Bolirana</p>
+    </footer>
+
+    <script src="js/juego.js"></script> 
+</body>
+</html>

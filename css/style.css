@@ -1,0 +1,637 @@
+/* ========================================= */
+/* ESTILOS GLOBALES Y RESET BÁSICO           */
+/* ========================================= */
+body {
+    /* Fuente moderna y base de flexbox para el diseño */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    /* Fondo con gradiente moderno para coherencia visual */
+    background: linear-gradient(to right, #6dd5ed, #2193b0); 
+    color: #333;
+    overflow-x: hidden;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 1.5rem 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+main {
+    /* Centrado de contenido principal */
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Se usa 'flex-start' para que el contenido de juego no flote */
+    padding: 2rem;
+    width: 100%;
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 0.9rem;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* ========================================= */
+/* ESTILOS DE BOTÓN PRINCIPAL                */
+/* ========================================= */
+.boton-principal {
+    /* Estilo base del botón interactivo */
+    background: linear-gradient(to right, #00b09b, #96c93d); 
+    color: white;
+    padding: 18px 40px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    /* Correcciones para centrar */
+    max-width: 350px;
+    width: 100%;
+    margin: 1.5rem auto 0; /* Margen superior y 'auto' para centrar */
+    display: block; /* Asegura que 'margin: auto' funcione */
+}
+
+.boton-principal:hover {
+    background: linear-gradient(to right, #96c93d, #00b09b);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+}
+
+.boton-principal:active {
+    transform: translateY(0) scale(0.98);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.boton-principal::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: skewX(-30deg);
+    transition: 0.7s;
+}
+
+.boton-principal:hover::after {
+    left: 100%;
+}
+
+/* ========================================= */
+/* ESTILOS PÁGINA DE INICIO (index.html)     */
+/* ========================================= */
+.contenido-inicio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 4rem 5rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1.5s ease-out; 
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.imagen-bolirana {
+    max-width: 350px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s ease;
+}
+
+.imagen-bolirana:hover {
+    transform: scale(1.03);
+}
+
+/* ========================================= */
+/* ESTILOS PÁGINA SELECCIÓN MODO (modo_juego.html) */
+/* ========================================= */
+
+.opciones-modo {
+    display: flex;
+    gap: 40px;
+    max-width: 900px;
+    width: 100%;
+    padding: 2rem;
+    justify-content: center;
+    flex-wrap: wrap; 
+}
+
+.tarjeta-modo {
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex: 1; 
+    max-width: 400px;
+    min-height: 250px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.tarjeta-modo:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.tarjeta-modo h2 {
+    color: #2193b0;
+    margin: 15px 0 10px 0;
+    font-size: 1.8rem;
+}
+
+.tarjeta-modo p {
+    color: #666;
+    font-size: 1rem;
+}
+
+.imagen-modo {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* ========================================= */
+/* ESTILOS PÁGINAS DE CONFIGURACIÓN Y NOMBRES */
+/* ========================================= */
+
+.configuracion-formulario {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 0; 
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 600px; 
+    width: 90%;
+    animation: fadeIn 1s ease-out; 
+    overflow: hidden; 
+}
+
+.imagen-modo-seleccionado {
+    width: 100%;
+    height: 180px; 
+    object-fit: cover;
+    margin-bottom: 0;
+    border-radius: 15px 15px 0 0; 
+    box-shadow: none; 
+}
+
+.configuracion-formulario h2 {
+    color: #2193b0;
+    margin: 2rem 1.5rem 1rem 1.5rem; 
+    font-size: 2rem;
+}
+
+#tituloJugadorActual {
+    color: #2193b0; 
+    margin: 2rem 1.5rem 1rem 1.5rem; 
+    font-size: 2rem; 
+}
+
+/* Contenedores de formularios - Centrado de elementos internos */
+#formConfiguracionIndividual,
+#formNombresJugadores {
+    padding: 0 1.5rem 2.5rem 1.5rem; 
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center; /* CLAVE para centrar campos y botones */
+}
+
+.input-group {
+    text-align: left;
+    width: 100%; /* Asegura que el input-group use todo el ancho para el centrado */
+    max-width: 350px; /* Limita el ancho de los inputs para mejor estética */
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Estilos para todos los campos de entrada de datos */
+#numJugadores,
+#numPuestos,
+#puntajeMaximo,
+#nombreJugadorActual,
+.input-premio,
+#puntajeLanzamiento { /* ¡AÑADIDO! */
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    box-sizing: border-box; 
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Estilos de enfoque para todos los campos */
+#numJugadores:focus,
+#numPuestos:focus,
+#puntajeMaximo:focus,
+#nombreJugadorActual:focus,
+.input-premio:focus,
+#puntajeLanzamiento:focus { /* ¡AÑADIDO! */
+    border-color: #00b09b; 
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 176, 155, 0.4);
+}
+
+#btnIniciarPartida,
+#btnSortear,
+#btnSiguiente,
+#btnEmpezarJuego {
+    width: 100%; 
+    margin-top: 1rem;
+    /* El centrado se maneja por .boton-principal */
+}
+
+.contenedor-premios,
+.contenedor-entrada { 
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px dashed #2193b0; 
+    border-radius: 8px;
+    margin-top: 1rem;
+    background-color: #f7f7f7;
+    width: 100%;
+    max-width: 400px;
+}
+
+.contenedor-premios h3 {
+    color: #00b09b;
+    margin: 0 0 0.5rem 0;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+
+/* --- Estilos para Sorteo (pantalla_nombres.html) --- */
+
+.resultado-sorteo {
+    padding: 2rem;
+    background-color: #f0f8ff; 
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+    width: calc(100% - 3rem); 
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.ruleta-visual {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #00b09b;
+    text-align: center; 
+    padding: 20px;
+    margin: 1.5rem auto; 
+    border: 3px solid #6dd5ed;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    height: 60px; 
+    max-width: 350px; 
+    width: 90%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); 
+}
+
+.ruleta-activa {
+    animation: ruletaTemblor 0.1s infinite alternate;
+}
+
+@keyframes ruletaTemblor {
+    from { transform: translateX(-2px) translateY(2px); }
+    to { transform: translateX(2px) translateY(-2px); }
+}
+
+.resultado-sorteo h3 {
+    color: #00b09b;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.lista-sorteo {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: left; 
+}
+
+.lista-sorteo li {
+    background-color: white;
+    padding: 12px;
+    margin-bottom: 8px;
+    border-left: 5px solid #2193b0;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+    opacity: 0;
+    animation: fadeInSlide 0.5s forwards;
+}
+
+@keyframes fadeInSlide {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+---
+
+## 🎮 ESTILOS PÁGINA DE JUEGO (`pantalla_juego.html`)
+
+Aquí se encuentran los estilos que moví de tu etiqueta `<style>` y que ahora están bajo el comentario **`ESTILOS PÁGINA DE JUEGO (pantalla_juego)`**.
+
+```css
+/* ========================================= */
+/* ESTILOS PÁGINA DE JUEGO (pantalla_juego)  */
+/* ========================================= */
+
+/* Contenedor principal de la acción (Lanzando + Input) */
+.contenedor-accion {
+    display: flex;
+    justify-content: space-around;
+    align-items: center; 
+    gap: 30px;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: #f7f7f7; 
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 700px; /* Ancho ajustado */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Estilo para el jugador que está lanzando (Izquierda) */
+.tarjeta-jugador-lanzando {
+    text-align: center;
+    flex: 1;
+    padding: 15px;
+    background-color: #2193b0; 
+    color: white; 
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    min-width: 200px;
+}
+.tarjeta-jugador-lanzando h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.1rem;
+    color: white;
+}
+.tarjeta-jugador-lanzando p {
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin: 0;
+    padding: 5px 0;
+}
+
+/* Estilo para el input de puntaje (Derecha) */
+.form-puntaje {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    background: none;
+    padding: 0;
+    box-shadow: none;
+}
+#puntajeLanzamiento {
+    font-size: 1.5rem;
+    padding: 10px;
+    width: 120px;
+    text-align: center;
+    border: 2px solid #00b09b;
+    border-radius: 5px;
+}
+#btnSiguienteTurno {
+    max-width: 250px; /* Para que el botón de guardar no sea demasiado ancho */
+    padding: 12px 20px; /* Ajuste del padding para que no sea tan grande como el .boton-principal */
+    font-size: 1.1rem; 
+    margin: 0; /* Anula el margen 'auto' de .boton-principal */
+}
+
+
+/* Estilo para el jugador que se prepara (Debajo) */
+.tarjeta-jugador-preparado {
+    text-align: center;
+    margin: 1rem auto 2.5rem auto;
+    padding: 10px 20px;
+    background-color: #f0f8ff; 
+    border-radius: 8px;
+    max-width: 400px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+.tarjeta-jugador-preparado h3 {
+    margin: 0 0 5px 0;
+    font-size: 1rem;
+    color: #666;
+}
+.tarjeta-jugador-preparado p {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #00b09b;
+    margin: 0;
+}
+
+/* --- Estilos de la Tabla de Puntuaciones --- */
+
+.tabla-puntuaciones {
+    width: 100%;
+    margin-top: 2rem;
+    border-collapse: collapse;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.tabla-puntuaciones th, .tabla-puntuaciones td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+}
+.tabla-puntuaciones th {
+    background-color: #2193b0;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.tabla-puntuaciones tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+.tabla-puntuaciones tr.ganador-puesto {
+    background-color: #96c93d;
+    color: white;
+    font-weight: bold;
+}
+.tabla-puntuaciones tr.ganador-puesto td {
+    border-bottom: 1px solid #71992f;
+}
+
+/* --- Estilos de Resultados Finales --- */
+#resultadoFinalJuego {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 2px solid #00b09b;
+    margin-top: 3rem; 
+    padding: 20px; 
+    background-color: #e6ffe6; 
+    border-radius: 10px;
+}
+#resultadoFinalJuego h2 {
+    color: #00b09b;
+    margin-top: 0;
+}
+
+/* ========================================= */
+/* MEDIA QUERIES (RESPONSIVE)                */
+/* ========================================= */
+@media (max-width: 768px) {
+    /* ... (El resto de tus media queries) ... */
+    h1 {
+        font-size: 2rem;
+    }
+    .contenido-inicio, .opciones-modo {
+        padding: 2rem 3rem;
+        gap: 2rem;
+    }
+    .configuracion-formulario {
+        width: 100%; 
+    }
+    .boton-principal {
+        padding: 15px 30px;
+        font-size: 1.3rem;
+    }
+    .opciones-modo {
+        flex-direction: column; 
+        align-items: center;
+        gap: 25px;
+    }
+    .tarjeta-modo {
+        max-width: 80%; 
+    }
+    .resultado-sorteo {
+        width: 90%;
+    }
+
+    /* Ajuste específico para la pantalla de juego en móviles */
+    .contenedor-accion {
+        flex-direction: column;
+        gap: 20px;
+        padding: 1rem;
+        width: 100%;
+    }
+    
+    .tarjeta-jugador-lanzando {
+        width: 100%;
+        min-width: auto;
+    }
+    
+    .form-puntaje {
+        width: 100%;
+        min-width: 0;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+    
+    /* Input de Puntaje en Móviles */
+    #puntajeLanzamiento {
+        font-size: 1.8rem;
+        padding: 12px 15px;
+        width: 120px;
+        text-align: center;
+        border: 3px solid #00b09b;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        appearance: textfield; 
+    }
+    
+    /* Botón Siguiente Turno en Móviles */
+    #btnSiguienteTurno {
+        padding: 12px 18px; 
+        font-size: 1rem; 
+        max-width: 180px; 
+        line-height: 1.2; 
+        text-align: center;
+    }
+    
+    .tabla-puntuaciones {
+        font-size: 0.8rem;
+    }
+    .tabla-puntuaciones th, .tabla-puntuaciones td {
+        padding: 8px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+    .contenido-inicio {
+        padding: 1.5rem 2rem;
+        gap: 1.5rem;
+    }
+    .configuracion-formulario h2 {
+        margin-top: 1.5rem;
+    }
+    #formConfiguracionIndividual,
+    #formNombresJugadores {
+        padding-bottom: 2rem;
+    }
+    .boton-principal {
+        padding: 12px 25px;
+        font-size: 1.1rem;
+    }
+}

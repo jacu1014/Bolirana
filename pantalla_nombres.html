@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingreso de Jugadores</title>
+    <link rel="stylesheet" href="css/style.css"> 
+</head>
+<body>
+    <header>
+        <h1>Ingreso de Nombres</h1>
+    </header>
+
+    <main class="pagina-configuracion">
+        <section class="configuracion-formulario">
+            <img src="img/individual.jpg" alt="Modo individual seleccionado" class="imagen-modo-seleccionado">
+
+            <h2 id="tituloJugadorActual"></h2> 
+            
+            <form id="formNombresJugadores">
+                
+                <div id="contenedorEntrada" class="contenedor-entrada">
+                    <div class="input-group">
+                        <label for="nombreJugadorActual">Nombre:</label>
+                        <input type="text" 
+                               id="nombreJugadorActual" 
+                               name="nombreJugadorActual" 
+                               placeholder="Ingresa el nombre del jugador" 
+                               required 
+                               maxlength="20">
+                    </div>
+                </div>
+
+                <button type="submit" id="btnSiguiente" class="boton-principal">
+                    Siguiente
+                </button>
+                
+            </form>
+
+            <div id="resultadoSorteo" class="resultado-sorteo hidden">
+                <h3 id="mensajeSorteo"></h3>
+                <div id="efectoRuleta" class="ruleta-visual"></div> 
+                
+                <ol id="listaOrden" class="lista-sorteo hidden"></ol>
+                
+                <button id="btnEmpezarJuego" class="boton-principal hidden" style="margin-top: 1.5rem;">
+                    ¡Comenzar el Juego!
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Juego de Bolirana</p>
+    </footer>
+
+    <script src="js/juego.js"></script> 
+</body>
+</html>
